@@ -1,25 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: voting-app-deployment
+  name: test-deployment
   labels:
-    app: demo-voting-app
+    app: test-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      name: voting-app-pod
-      app: demo-voting-app
+      name: test-app-pod
+      app: test-app
   template:
     metadata:
-      name: voting-app-pod
+      name: test-app-pod
       labels:
-        name: voting-app-pod
-        app: demo-voting-app
-
+        name: test-app-pod
+        app: test-app
     spec:
       containers:
-      - name: voting-app
-        image: dockersamples/examplevotingapp_vote
+      - name: test-app
+        image: gcr.io/moonlit-pursuit-269718/test-app
         ports:
-        - containerPort: 80
+        - containerPort: 8080
